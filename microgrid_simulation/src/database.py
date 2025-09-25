@@ -2,7 +2,7 @@
 In-memory database implementation using Python dictionaries.
 """
 from typing import Dict, List, Optional, Any
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 
 class Database:
@@ -68,7 +68,7 @@ class Database:
             'sender_id': sender_id,
             'receiver_id': receiver_id,
             'amount': amount,
-            'timestamp': datetime.now(datetime.timezone.utc)
+            'timestamp': datetime.now(timezone.utc)
         }
         self._transactions[tx_id] = transaction
         return transaction
